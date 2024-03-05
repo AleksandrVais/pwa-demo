@@ -9,12 +9,15 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import {MainPage} from "./pages/MainMage/MainPage";
+import {CachingPage} from "./pages/CachingPage";
 
 const router = createBrowserRouter([
     {
         element: <App/>,
         children: [
-            {path: '/', element: <MainPage/>}
+            {path: '/', element: <MainPage/>},
+            {path: '/cache', element: <CachingPage/>}
+
         ]
     }
 ])

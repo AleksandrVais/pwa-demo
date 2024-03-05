@@ -91,7 +91,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const menuItems = ['Inbox', 'Starred', 'Send email', 'Drafts']
 
-export const SideMenu = ()=> {
+export const HeaderAndSideMenu = ()=> {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -158,7 +158,7 @@ export const SideMenu = ()=> {
                 </List>
                 {/*<Divider />*/}
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+            <Box component="main" sx={{ flexGrow: 1, p: 3, mt: '64px' }}>
                 <Outlet/>
             </Box>
         </Box>
