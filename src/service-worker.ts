@@ -78,3 +78,18 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+// Caching all requests
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        // Try to cache
+        caches.match(event.request).then(response => {
+            // Fall back to response
+            return response || fetch(event.request)
+        })
+        //     .catch(() => {
+        //     // If both fail show generic fallback
+        //     // return caches.match('/offline.html')
+        // })
+    )
+})
