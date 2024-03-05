@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import {Menu, ChevronLeft, ChevronRight, Inbox, Mail } from '@mui/icons-material';
-import {Outlet} from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -92,6 +92,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const menuItems = ['Inbox', 'Starred', 'Send email', 'Drafts']
 
 export const HeaderAndSideMenu = ()=> {
+    const navigate = useNavigate();
+
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -133,6 +135,7 @@ export const HeaderAndSideMenu = ()=> {
                 </DrawerHeader>
                 <Divider />
                 <List>
+                    <button onClick={() => navigate('/cache')}>Cache</button>
                     {menuItems.map((text, index) => (
                         <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                             <ListItemButton
